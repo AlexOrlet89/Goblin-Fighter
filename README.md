@@ -16,17 +16,8 @@ the name and HP elements are given a text content of goblin.name and goblin.hp r
 goblin faceis generated using a ternary, a shorthand if else. if the goblin hp is greater than zero, give it the string value of `:)`, else `:(`.
 then, append  name face and hp elements to our goblin el and return the div
 
+next we need to display this rendered div on the screen, this functino will be called displayGoblins. first we need to grab the element where we want the div to append and call it goblinList. this function will be passing objects in our goblins array through the rendergoblin function, which will give us a rendered div, which we will set to append to goblinList. 
 
-what happens when we click on new goblin
-a div class is created with three separate within that class, one for name one for icon and one for a value that stands in for HP
+we will first set for loop to loop through the array of goblins. each goblin that passes through renderGoblin is appended to goblin List
 
-// set event listeners, we have an addNewGoblin form
-//WHEN WE CLICK: we create an object with 3 kv pairs
-// the id is taken from current id, which will be ++'d 
-// the name is taken from name input
-//hp is randomly generated
-//this object is pushed onto goblins
-
-//next we need to update the display with the goblins
-// the first object in our array is sent through the for of loop
-// the three kv pairs
+now we can call display goblin at the end of our eventlistener

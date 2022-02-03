@@ -1,10 +1,12 @@
-const form = document.getElementById(form);
+const form = document.getElementById('form');
+const goblinList = document.getElementById('goblins');
 
 let currentID = 1;
 let goblins = [];
 
 
 form.addEventListener('submit', (e) => {
+    console.log('click');
     e.preventDefault();
     const data = new FormData(form);
 
@@ -18,6 +20,8 @@ form.addEventListener('submit', (e) => {
     currentID++;
 
     goblins.push(newGoblin);
+
+    displayGoblins();
 });
 
 function renderGoblin(goblin) {
@@ -36,5 +40,14 @@ function renderGoblin(goblin) {
     goblinEl.append(nameEl, faceEl, hpEl);
 
     return goblinEl;
+}
 
+function displayGoblins() {
+    goblinList.textContent = '';
+
+    for (let goblin of goblins) {
+        const goblinEl = renderGoblin(goblin);
+
+        goblinList.append(goblinEl);
+    }
 }
