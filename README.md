@@ -10,6 +10,12 @@ let goblins = [];
 
 CREATING A DIV WITH OUR NEW GOBLIN'S DATA
 we are going to create a function called renderGoblin, which will take our newGoblin and render a div with a class of goblin, and three paragraph elements appended to the div. the first p will have the (name:) the second paragraph will have a icon which will change depending on the (hp:) and then the actual (hp:) itself.
+first we will create these elements, 1 div and 3 ps
+we attach the goblin class to our div
+the name and HP elements are given a text content of goblin.name and goblin.hp respectively. 
+goblin faceis generated using a ternary, a shorthand if else. if the goblin hp is greater than zero, give it the string value of `:)`, else `:(`.
+then, append  name face and hp elements to our goblin el and return the div
+
 
 what happens when we click on new goblin
 a div class is created with three separate within that class, one for name one for icon and one for a value that stands in for HP
