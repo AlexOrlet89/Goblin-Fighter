@@ -1,1 +1,52 @@
 /* add home page styles here */
+body {
+    border: rgb(243, 104, 104) 3px solid;
+    
+}
+
+main {
+    height: 40vw;
+    display: flex;
+    
+    border: blue 3px solid;
+    
+}
+
+.leftside {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    border: black 3px solid;
+    justify-content: space-around;
+    align-items: center;
+}
+.rightside {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    border: black 3px solid;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#heroIMG {
+    height: 200px;
+    width: 200px;
+    border: black 3px solid;
+}
+
+.goblins {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.goblin {
+    background-color: cadetblue;
+    border: black 3px solid;
+    width: 600px;
+    text-align: center;
+
+}

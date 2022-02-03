@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" href="./styles/reset.css"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>GOBLIN FIGHT</title>
 </head>
 
 <body>
@@ -17,23 +17,29 @@
 
     </header>
     <main> 
-        <div id="leftside" class="">
-            <div id="defeatedGoblins"></div>
-            <div id="heroHP"></div>
-            <img id=heroIMG/>
+        <div id="leftside" class="leftside">
+            <div >defeated goblins <span id="defeatedGoblins">0</span> </div>
+            <div id="heroHP">herohp</div>
+            <img id=heroIMG src="/assets/OK_thumb.jpg" />
         </div>
-        <div id="rightside" class="">
+        <div id="rightside" class="rightside">
             <form>
                 <input name="goblin-name">
                 <button>a new goblin approacheth...</button>
             </form>
             <div class="goblins">
-                <div class="goblin">goblin here</div>
+
+
+                <!-- <div class="goblin">
+                    <p>Ross from friends</p>
+                    <p id="face1">>>>:))))</p>
+                    <p id="hp1">666</p>
+                </div> -->
+            
             </div>
         </div>
     </main>
     <footer>
-        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
 
     <script type="module" src="./app.js"></script>
