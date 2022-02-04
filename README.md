@@ -45,3 +45,5 @@ we just added another if statement like the first one and made it ++ to defeated
 
 alright and we need an alert for when you die, with a how many goblins you defeated inside of it.
 next we begin the testing process for our renderGoblins function, we will use randy johnson as the example.
+
+gonna try and add sound!

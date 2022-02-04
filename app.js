@@ -5,6 +5,17 @@ const goblinList = document.getElementById('goblins');
 const heroHPel = document.getElementById('heroHP');
 const defeatedGoblinsEl = document.getElementById('defeatedGoblins');
 
+function playCheer() {
+    new Audio(`assets/18364__jasinski__bb-claprhm.mp3`).play();
+}
+function playHit() {
+    new Audio(`assets/214989__amishrob__baseballhitandcrowdcheer.mp3`).play();
+}
+function playStrike() {
+    new Audio(`assets/45110__sanus-excipio__thats-it.wav`).play();
+}
+
+
 let defeatedGoblins = 0;
 let currentID = 3;
 let goblins = [{
@@ -38,45 +49,49 @@ form.addEventListener('submit', (e) => {
 
 function displayGoblins() {
     goblinList.textContent = '';
-
+    
     for (let goblin of goblins) {
         const goblinEl = renderGoblin(goblin);
-
+        
         goblinEl.addEventListener('click', () => {
             console.log('goblin clicked');
             goblinClick(goblin);
         });
-
+        
         goblinList.append(goblinEl);
     }
 }
 
 function goblinClick(goblin) {
     if (goblin.hp <= 0) { alert('stop, stop!! ' + goblin.name + ' is already dead!'); 
-        return;
-    }
+    return;
+}
 
-    const goblinDie = Math.ceil(Math.random() * 6);
-    const heroDie = Math.ceil(Math.random() * 6);
+const goblinDie = Math.ceil(Math.random() * 6);
+const heroDie = Math.ceil(Math.random() * 6);
 
-    if (goblinDie > heroDie) {
-        heroHP -= (goblinDie - heroDie);
-        alert(`swing and a miss!`);
+if (goblinDie > heroDie) {
+    heroHP -= (goblinDie - heroDie);
+    playStrike();
+    alert(`swing and a miss!`);
         alert(`${goblin.name} hit you for ${(goblinDie - heroDie)} damage!`);
     }
     else if (heroDie > goblinDie) {
         goblin.hp -= (heroDie - goblinDie);
+        playHit();
         alert(`${goblin.name} tries to sneak one by ya!`);
         alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
+        
     }
     else alert(`CLANG! ya'lls swords bounce off eachother or whatever.....`);
-
+    
     const hpEl = document.getElementById(`GoblinHP${goblin.id}`);
     heroHPel.textContent = `${heroHP}`;
     hpEl.textContent = `${goblin.hp}`;
     displayGoblins();
-
+    
     if (goblin.hp <= 0) {
+        playCheer();
         defeatedGoblins++;
         defeatedGoblinsEl.textContent = defeatedGoblins;
     }
