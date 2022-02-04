@@ -42,3 +42,5 @@ okay, goblin face now updates by calling displayGoblins
 
 next up! defeated goblins! we need to grab this dom element at the top and let its state be 0.
 we just added another if statement like the first one and made it ++ to defeated goblins and then made that equal to textContent.
+
+alright and we need an alert for when you die, with a how many goblins you defeated inside of it.

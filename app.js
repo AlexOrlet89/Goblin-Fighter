@@ -4,8 +4,12 @@ const heroHPel = document.getElementById('heroHP');
 const defeatedGoblinsEl = document.getElementById('defeatedGoblins');
 
 let defeatedGoblins = 0;
-let currentID = 1;
-let goblins = [];
+let currentID = 3;
+let goblins = [{
+    name: `Randy Johnson`, id: 1, hp: 8
+}, {
+    name: `Terry Pendleton`, id: 2, hp: 7
+}];
 let heroHP = 10;
 
 
@@ -77,6 +81,7 @@ function goblinClick(goblin) {
     }
     else if (heroDie > goblinDie) {
         goblin.hp -= (heroDie - goblinDie);
+        alert(`${goblin.name} tries to sneak one by ya!`)
         alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
     }
     else alert(`CLANG! ya'lls swords bounce off eachother or whatever.....`);
@@ -91,4 +96,9 @@ function goblinClick(goblin) {
         defeatedGoblinsEl.textContent = defeatedGoblins;
     }
 
+    if (heroHP <= 0) {
+        alert(`You're overpowered by the goblins, they swarm you and take away your bat. You are cuffed and taken to a prison of some sort. In a week you will stand trial for the murder of ${defeatedGoblins} goblins and will likely face capital punishment. In your cell, in the dugout, you smile and await your next at-bat...`);
+    }
+
 } 
+displayGoblins();
