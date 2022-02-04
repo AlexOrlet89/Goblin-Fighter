@@ -1,8 +1,10 @@
 const form = document.getElementById('form');
 const goblinList = document.getElementById('goblins');
+const heroHPel = document.getElementById('heroHP');
 
 let currentID = 1;
 let goblins = [];
+let heroHP = 10;
 
 
 form.addEventListener('submit', (e) => {
@@ -57,3 +59,21 @@ function displayGoblins() {
     }
 }
 
+function goblinClick(goblin) {
+    if (goblin.hp <= 0) { alert('stop, stop!! ' + goblin.name + ' is already dead!'); 
+    return;
+    }
+    const goblinDie = Math.ceil(Math.random() * 6);
+    const heroDie = Math.ceil(Math.random() * 6);
+
+    if (goblinDie > heroDie) {
+        heroHP -= (goblinDie - heroDie);
+        alert(`${goblin.name} hit you for ${(goblinDie - heroDie)} damage!`)
+    }
+    else if (heroDie > goblinDie) {
+        goblin.hp -= (heroDie - goblinDie);
+        alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
+    }
+    else alert(`CLANG! ya'lls swords bounce off eachother or whatever.....`);
+
+} 

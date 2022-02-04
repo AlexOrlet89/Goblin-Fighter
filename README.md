@@ -30,3 +30,10 @@ goblins need to be clickable.
 because the first two won't happen unless the goblins are clickable lets ford focus on that.
 
 the goblinEl is going to be the displayed element clicked, so we go to where the goblinEl is created in renderGoblin and add a click eventlistener , and refer a function we haven't created yet called goblinClick, passing an argument which is the goblin object (id, name, hp).
+
+alright, now we have to define what goblin click is, which is basically our game and our results like hp decreases for hero and goblins, goblin body increments.
+
+so for our game, i want both goblin and hero to roll a 6d, and the difference is the damage taken. simple enough!
+
+so when we click, first we have to determine if the goblin is healthy enough to fight.
+now its time to grab our heroHPEl and let its state be equal to a number, say 10
