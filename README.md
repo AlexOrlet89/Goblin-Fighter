@@ -36,4 +36,9 @@ alright, now we have to define what goblin click is, which is basically our game
 so for our game, i want both goblin and hero to roll a 6d, and the difference is the damage taken. simple enough!
 
 so when we click, first we have to determine if the goblin is healthy enough to fight.
-now its time to grab our heroHPEl and let its state be equal to a number, say 10
+now its time to grab our heroHPEl and let its state be equal to a number, say 10. 
+
+okay, goblin face now updates by calling displayGoblins
+
+next up! defeated goblins! we need to grab this dom element at the top and let its state be 0.
+we just added another if statement like the first one and made it ++ to defeated goblins and then made that equal to textContent.
