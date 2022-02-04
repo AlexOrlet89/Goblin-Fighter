@@ -21,3 +21,12 @@ next we need to display this rendered div on the screen, this functino will be c
 we will first set for loop to loop through the array of goblins. each goblin that passes through renderGoblin is appended to goblin List
 
 now we can call display goblin at the end of our eventlistener
+
+Things we still need: 
+defeated goblin count
+hero hp to decrease
+goblins need to be clickable. 
+
+because the first two won't happen unless the goblins are clickable lets ford focus on that.
+
+the goblinEl is going to be the displayed element clicked, so we go to where the goblinEl is created in renderGoblin and add a click eventlistener , and refer a function we haven't created yet called goblinClick, passing an argument which is the goblin object (id, name, hp).

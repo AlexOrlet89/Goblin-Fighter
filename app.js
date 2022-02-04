@@ -39,6 +39,11 @@ function renderGoblin(goblin) {
 
     goblinEl.append(nameEl, faceEl, hpEl);
 
+    goblinEl.addEventListener('click', () => {
+        console.log('goblin clicked');
+        goblinClick(goblin);
+    });
+
     return goblinEl;
 }
 
@@ -51,3 +56,4 @@ function displayGoblins() {
         goblinList.append(goblinEl);
     }
 }
+
