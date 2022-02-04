@@ -1,27 +1,20 @@
-// we need a function that creates something like this:
-/* <div class="goblin">
-    <p>Ross from friends</p>
-    <p id="face1">>>>:))))</p>
-    <p id="hp1">666</p>
-    </div> */
+export function renderGoblin(goblin) {
+    const goblinEl = document.createElement('div');
+    const nameEl = document.createElement('p');
+    const faceEl = document.createElement('p');
+    const hpEl = document.createElement('p');
 
-// export function renderGoblin(item) {
+    goblinEl.classList.add('goblin');
 
-// // declare elements individually
-//     const goblinEl = document.createElement('div');
-//     const nameEl = document.createElement('p');
-//     const faceEl = document.createElement('p');
-//     const hpEl = document.createElement('p');
+    nameEl.textContent = goblin.name;
+    hpEl.textContent = goblin.hp;
+    hpEl.id = `GoblinHP${goblin.id}`;
 
-//     goblinEl.classList.add(`goblin`);
+    faceEl.textContent = goblin.hp > 0 ? `>:)` : `X(`;
 
-//     hpEl.id = `hp${item.id}`;
-//     nameEl.textContent = item.name;
-    
-//     faceEl.id = `face`;
-//     faceEl.textContent = item.hp > 0 ? '😈' : '🔥';
-//     hpEl.textContent = item.hp;
-    
-//     goblinEl.append(nameEl, faceEl, hpEl);
-//     return goblinEl;
-// }
+    goblinEl.append(nameEl, faceEl, hpEl);
+
+
+
+    return goblinEl;
+}

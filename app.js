@@ -1,3 +1,5 @@
+import { renderGoblin } from './utils.js';
+
 const form = document.getElementById('form');
 const goblinList = document.getElementById('goblins');
 const heroHPel = document.getElementById('heroHP');
@@ -32,35 +34,18 @@ form.addEventListener('submit', (e) => {
     displayGoblins();
 });
 
-function renderGoblin(goblin) {
-    const goblinEl = document.createElement('div');
-    const nameEl = document.createElement('p');
-    const faceEl = document.createElement('p');
-    const hpEl = document.createElement('p');
 
-    goblinEl.classList.add('goblin');
-
-    nameEl.textContent = goblin.name;
-    hpEl.textContent = goblin.hp;
-    hpEl.id = `GoblinHP${goblin.id}`;
-
-    faceEl.textContent = goblin.hp > 0 ? `>:)` : `X(`;
-
-    goblinEl.append(nameEl, faceEl, hpEl);
-
-    goblinEl.addEventListener('click', () => {
-        console.log('goblin clicked');
-        goblinClick(goblin);
-    });
-
-    return goblinEl;
-}
 
 function displayGoblins() {
     goblinList.textContent = '';
 
     for (let goblin of goblins) {
         const goblinEl = renderGoblin(goblin);
+
+        goblinEl.addEventListener('click', () => {
+            console.log('goblin clicked');
+            goblinClick(goblin);
+        });
 
         goblinList.append(goblinEl);
     }
@@ -81,7 +66,7 @@ function goblinClick(goblin) {
     }
     else if (heroDie > goblinDie) {
         goblin.hp -= (heroDie - goblinDie);
-        alert(`${goblin.name} tries to sneak one by ya!`)
+        alert(`${goblin.name} tries to sneak one by ya!`);
         alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
     }
     else alert(`CLANG! ya'lls swords bounce off eachother or whatever.....`);
@@ -98,6 +83,8 @@ function goblinClick(goblin) {
 
     if (heroHP <= 0) {
         alert(`You're overpowered by the goblins, they swarm you and take away your bat. You are cuffed and taken to a prison of some sort. In a week you will stand trial for the murder of ${defeatedGoblins} goblins and will likely face capital punishment. In your cell, in the dugout, you smile and await your next at-bat...`);
+
+        location.reload();
     }
 
 } 

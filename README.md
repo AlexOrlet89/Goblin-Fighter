@@ -44,3 +44,4 @@ next up! defeated goblins! we need to grab this dom element at the top and let i
 we just added another if statement like the first one and made it ++ to defeated goblins and then made that equal to textContent.
 
 alright and we need an alert for when you die, with a how many goblins you defeated inside of it.
+next we begin the testing process for our renderGoblins function, we will use randy johnson as the example.
