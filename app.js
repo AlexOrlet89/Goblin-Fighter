@@ -36,6 +36,7 @@ function renderGoblin(goblin) {
 
     nameEl.textContent = goblin.name;
     hpEl.textContent = goblin.hp;
+    hpEl.id = `GoblinHP${goblin.id}`;
 
     faceEl.textContent = goblin.hp > 0 ? `>:)` : `X(`;
 
@@ -63,6 +64,7 @@ function goblinClick(goblin) {
     if (goblin.hp <= 0) { alert('stop, stop!! ' + goblin.name + ' is already dead!'); 
     return;
     }
+
     const goblinDie = Math.ceil(Math.random() * 6);
     const heroDie = Math.ceil(Math.random() * 6);
 
@@ -75,5 +77,9 @@ function goblinClick(goblin) {
         alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
     }
     else alert(`CLANG! ya'lls swords bounce off eachother or whatever.....`);
+
+    const hpEl = document.getElementById(`GoblinHP${goblin.id}`);
+    heroHPel.textContent = `${heroHP}`;
+    hpEl.textContent = `${goblin.hp}`;
 
 } 
