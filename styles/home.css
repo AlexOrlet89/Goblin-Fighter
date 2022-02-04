@@ -1,4 +1,6 @@
 /* add home page styles here */
+
+
 body {
     border: rgb(243, 104, 104) 3px solid;
     
@@ -55,3 +57,4 @@ main {
 h1{
     text-align: center;
 }
+

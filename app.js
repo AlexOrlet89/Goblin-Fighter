@@ -5,6 +5,7 @@ const goblinList = document.getElementById('goblins');
 const heroHPel = document.getElementById('heroHP');
 const defeatedGoblinsEl = document.getElementById('defeatedGoblins');
 
+
 function playCheer() {
     new Audio(`assets/18364__jasinski__bb-claprhm.mp3`).play();
 }
@@ -23,7 +24,7 @@ let goblins = [{
 }, {
     name: `Terry Pendleton`, id: 2, hp: 7
 }];
-let heroHP = 10;
+let heroHP = 3;
 
 
 form.addEventListener('submit', (e) => {
@@ -53,6 +54,11 @@ function displayGoblins() {
     
     for (let goblin of goblins) {
         const goblinEl = renderGoblin(goblin);
+
+        if (goblin.hp <= 0) {
+            goblinEl.style.opacity = '.5';
+        //     goblinEl.classList.add(`animate__animated`, `animate__flip`);
+        }
         
         goblinEl.addEventListener('click', () => {
             console.log('goblin clicked');
@@ -70,22 +76,22 @@ function goblinClick(goblin) {
     }
 
     const goblinDie = Math.ceil(Math.random() * 6);
-    const heroDie = Math.ceil(Math.random() * 60);
+    const heroDie = Math.ceil(Math.random() * 9);
 
-    if (goblinDie > heroDie) {
-        heroHP -= (goblinDie - heroDie);
+    if (goblinDie >= heroDie) {
+        heroHP --;
         playStrike();
         alert(`swing and a miss!`);
-        alert(`${goblin.name} hit you for ${(goblinDie - heroDie)} damage!`);
+        // alert(`${goblin.name} hit you for ${(goblinDie - heroDie)} damage!`);
     }
     else if (heroDie > goblinDie) {
         goblin.hp -= ((heroDie) - goblinDie);
         playHit();
         alert(`${goblin.name} tries to sneak one by ya!`);
-        alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
+        alert(`you hit the ball right back at ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
         
     }
-    else alert(`CLANG! ya'lls swords bounce off eachother or whatever.....`);
+    else alert(`FOUL BALL!`);
     
     const hpEl = document.getElementById(`GoblinHP${goblin.id}`);
     heroHPel.textContent = `${heroHP}`;
@@ -93,7 +99,11 @@ function goblinClick(goblin) {
     displayGoblins();
     
     if (goblin.hp <= 0) {
+        const goblinEl = document.getElementById(`DivId${goblin.id}`);
         playCheer();
+        alert(`....and it blows a hole right through ${goblin.name}'s chest!! The crowd goes crazy as he is carried off limply on a stretcher!! The fans are unfazed, baseball fans being notorious for their bloodlust...`);
+        goblinEl.classList.add(`animate__animated`, `animate__flip`);
+        // halfOpacity(goblin);
         defeatedGoblins.push(`${goblin.name}`);
         defeatedGoblinsEl.textContent = defeatedGoblins;
     }

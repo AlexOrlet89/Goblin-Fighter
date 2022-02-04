@@ -13,7 +13,8 @@ export function renderGoblin(goblin) {
 
 
     faceEl.textContent = goblin.hp > 0 ? `>:)` : `X(`;
-    goblinEl.style.opacity = goblin.hp > 0 ? '1' : '0.5';
+    // goblinEl.classList.add(`animate__animated`, `animate__flip`);
+    // goblinEl.style.opacity = goblin.hp > 0 ? '1' : '0.5';
     goblinEl.append(nameEl, faceEl, hpEl);
 
 
