@@ -16,7 +16,7 @@ function playStrike() {
 }
 
 
-let defeatedGoblins = 0;
+let defeatedGoblins = [];
 let currentID = 3;
 let goblins = [{
     name: `Randy Johnson`, id: 1, hp: 8
@@ -47,6 +47,7 @@ form.addEventListener('submit', (e) => {
 
 
 
+
 function displayGoblins() {
     goblinList.textContent = '';
     
@@ -63,21 +64,22 @@ function displayGoblins() {
 }
 
 function goblinClick(goblin) {
+
     if (goblin.hp <= 0) { alert('stop, stop!! ' + goblin.name + ' is already dead!'); 
-    return;
-}
+        return;
+    }
 
-const goblinDie = Math.ceil(Math.random() * 6);
-const heroDie = Math.ceil(Math.random() * 6);
+    const goblinDie = Math.ceil(Math.random() * 6);
+    const heroDie = Math.ceil(Math.random() * 60);
 
-if (goblinDie > heroDie) {
-    heroHP -= (goblinDie - heroDie);
-    playStrike();
-    alert(`swing and a miss!`);
+    if (goblinDie > heroDie) {
+        heroHP -= (goblinDie - heroDie);
+        playStrike();
+        alert(`swing and a miss!`);
         alert(`${goblin.name} hit you for ${(goblinDie - heroDie)} damage!`);
     }
     else if (heroDie > goblinDie) {
-        goblin.hp -= (heroDie - goblinDie);
+        goblin.hp -= ((heroDie) - goblinDie);
         playHit();
         alert(`${goblin.name} tries to sneak one by ya!`);
         alert(`you hit ${goblin.name} for ${(heroDie - goblinDie)} damage!`);
@@ -92,7 +94,7 @@ if (goblinDie > heroDie) {
     
     if (goblin.hp <= 0) {
         playCheer();
-        defeatedGoblins++;
+        defeatedGoblins.push(`${goblin.name}`);
         defeatedGoblinsEl.textContent = defeatedGoblins;
     }
 

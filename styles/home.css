@@ -44,9 +44,14 @@ main {
 }
 
 .goblin {
+    display: flex;
     background-color: cadetblue;
     border: black 3px solid;
     width: 600px;
     text-align: center;
+    justify-content: space-evenly;
+}
 
+h1{
+    text-align: center;
 }
