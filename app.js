@@ -113,20 +113,20 @@ function goblinClick(goblin) {
         defeatedGoblins.push(`${goblin.name}`);
         defeatedGoblinsEl.textContent = defeatedGoblins;
     }
-    if (goblin.hp < 0 && goblin.hp > -3) {
+    if (goblin.hp <= 0 && goblin.hp > -3) {
         const goblinEl = document.getElementById(`DivId${goblin.id}`);
         playCheer();
         alert(`...and it bonks ${goblin.name} right on the noggin! a lump shoots straight up through his baseball cap and little birds whistle about it. Stars  fill up ${goblin.name}'s eyes and he falls over, much to the raucous amusement of the crowd, who demand more beefballs slammed out to center field`);
-        goblinEl.classList.add(`animate__animated`, `animate__flip`);
+        goblinEl.classList.add(`animate__animated`, `animate__hinge`);
         // halfOpacity(goblin);
         defeatedGoblins.push(`${goblin.name}`);
         defeatedGoblinsEl.textContent = defeatedGoblins;
     }
-    if (goblin.hp < -3 && goblin.hp > -7) {
+    if (goblin.hp <= -3 && goblin.hp > -7) {
         const goblinEl = document.getElementById(`DivId${goblin.id}`);
         playCheer();
         alert(`....and it blows a hole right through ${goblin.name}'s chest!! The crowd goes crazy as he is carried off limply on a stretcher!! The fans are unfazed, baseball fans being notorious for their bloodlust...`);
-        goblinEl.classList.add(`animate__animated`, `animate__flip`);
+        goblinEl.classList.add(`animate__animated`, `animate__bounceOutUp`);
         // halfOpacity(goblin);
         defeatedGoblins.push(`${goblin.name}`);
         defeatedGoblinsEl.textContent = defeatedGoblins;
@@ -137,10 +137,18 @@ function goblinClick(goblin) {
             alert(`You've finally struck out, just as security swarms you and takes your bat. You are cuffed and taken to a prison and in a week you will stand trial for the murder of ${defeatedGoblins} and will likely face capital punishment. In your cell, in the dugout, you smile and await your next at-bat...`);}
 
         else {
-            alert(`You've struck out and made a fool of yourself in front of the legends of baseball and it's diehard fans... you die penniless on the streets and your family never speaks to you again...`);}
+            alert(`You've struck out and made a fool of yourself in front of the legends of baseball and it's diehard fans... you die penniless on the streets and your family never speaks to you again...`);
+        }
         alert(`thanks for playing :)`);
         location.reload();
     }
+    if (defeatedGoblins.length === (currentID - 1)) {
+        alert(`you have become baseball god by sending ${defeatedGoblins} to the great DL in the sky. When authorities attempt to find you for the murder of ${defeatedGoblins}, they are unable, as you have entered a timeline where you are permanently atop the shoulders of cheering crowds, your victims a tribute to your awesome power... `);
+
+        alert(`thanks for playing :)`);
+        location.reload();
+    }
+
 
 } 
 displayGoblins();

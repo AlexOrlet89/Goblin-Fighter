@@ -50,3 +50,6 @@ gonna try and add sound!
 Personal Stretch Goals:
 
 defeated goblin array for dead baseball players
+
+animate__hinge
+animate__bounceOutUp
