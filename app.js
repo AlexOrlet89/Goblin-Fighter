@@ -82,7 +82,7 @@ function goblinClick(goblin) {
     }
 
     const goblinDie = Math.ceil(Math.random() * 6);
-    const heroDie = Math.ceil(Math.random() * 15);
+    const heroDie = Math.ceil(Math.random() * 12);
 
     if (goblinDie > heroDie) {
         heroHP --;

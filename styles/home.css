@@ -2,8 +2,10 @@
 
 
 body {
-    border: rgb(243, 104, 104) 3px solid;
-    
+    border: #f36868 3px solid;
+    padding-left: 10%;
+    padding-right: 10%;
+    /* padding-bottom: 10%; */
 }
 
 main {
@@ -29,7 +31,7 @@ main {
     width: 50%;
     height: 100%;
     border: black 3px solid;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -42,14 +44,18 @@ main {
 .goblins {
     display: flex;
     flex-direction: column;
-
+    height: 15%;
+    justify-content: flex-start;
 }
 
 .goblin {
+    /* margin-top: 10%; */
     display: flex;
     background-color: cadetblue;
     border: black 3px solid;
-    width: 600px;
+    width: 150%;
+    height: 100%;
+    align-content: stretch;
     text-align: center;
     justify-content: space-evenly;
 }
@@ -58,3 +64,8 @@ h1{
     text-align: center;
 }
 
+
+form {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
