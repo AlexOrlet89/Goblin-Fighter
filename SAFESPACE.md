@@ -50,6 +50,5 @@ gonna try and add sound!
 Personal Stretch Goals:
 
 defeated goblin array for dead baseball players
-
-animate__hinge
-animate__bounceOutUp
+ turn defeated goblins into an array
+ push goblin.name onto that array
